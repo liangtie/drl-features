@@ -1,0 +1,44 @@
+package com.sample;
+ 
+import com.sample.DroolsTest.Message; 
+import java.util.List;
+global java.util.List list
+ 
+rule "Hello Cruel World 01 "
+    when
+        m : Message( status == Message.HELLO, myMessage : message )
+    then
+        System.out.println( myMessage );
+        m.setMessage( "Preparing to say goodbye" );
+        m.setStatus( Message.GOODBYE );
+        update( m );
+end
+
+rule "GoodBye Cruel"
+    when
+        Message( status == Message.GOODBYE, myMessage : message )
+    then
+        System.out.println( myMessage );
+        System.out.println( " Triggering another rule" );
+end
+
+
+rule "Found goodbye message"
+    when
+        m :  Message( status == Message.GOODBYE, myMessage : message )
+    then
+        System.out.println( myMessage );
+        System.out.println( " Triggering another rule" );
+        m.setStatus(Message.GOODNIGHT);
+        m.setMessage("Hold on brother\n");
+        update(m)
+end
+
+rule "Update message to good nb="
+    when
+       m : Message( status == Message.GOODNIGHT, myMessage : message )
+    then
+        System.out.println( myMessage );
+        list.add(m);
+end
+

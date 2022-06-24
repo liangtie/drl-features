@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kmodule xmlns="http://jboss.org/kie/6.0.0/kmodule">
+    <kbase name="rules" packages="rules,rules.statelessRules">
+        <ksession name="ksession-rules"/>
+        <ksession name="stateLess-ksession-test" type="stateless" default="true" clockType="realtime" />
+    </kbase>
+    <kbase name="dtables" packages="dtables">
+        <ksession name="ksession-dtables"/>
+    </kbase>
+    <kbase name="process" packages="process">
+        <ksession name="ksession-process"/>
+    </kbase>
+    <kbase name="eatWhat" packages="eatWhat">
+        <ksession name="ksession-eatWhat"/>
+    </kbase>
+</kmodule>

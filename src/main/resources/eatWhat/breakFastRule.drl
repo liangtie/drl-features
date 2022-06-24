@@ -1,0 +1,29 @@
+//created on: 2022-6-22
+package com.sample
+import com.sample.Breakfast;
+//list any import classes here.
+
+
+
+//declare any global variables here
+
+
+
+
+rule "Make decision for location"
+
+    when
+        $breakFast : Breakfast( weather == Breakfast.Sunny && location != Breakfast.GoOutside )
+    then
+        $breakFast.setLocation(Breakfast.GoOutside);
+        System.out.println("We are going outside");
+        update($breakFast);
+
+end
+
+rule "Make decistion for vehiche"
+    when
+        $breakFast : Breakfast( location == Breakfast.GoOutside && memberCount > 1)    
+    then
+        System.out.println("We shall take a bus");
+end
