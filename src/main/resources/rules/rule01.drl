@@ -2,6 +2,8 @@ package com.sample;
  
 import com.sample.DroolsTest.Message; 
 import java.util.List;
+import java.util.HashMap;
+
 global java.util.List list
  
 rule "Hello Cruel World 01 "
@@ -41,4 +43,39 @@ rule "Update message to good nb="
         System.out.println( myMessage );
         list.add(m);
 end
+
+rule "Check if object is Chinese"
+    when
+       m : HashMap(hometown=="China")
+    then
+        System.out.println( "Find a Chinese" );
+        list.add(m);
+end
+
+rule "Check if object is Chinese"
+    when
+       m : Object( toString()=="{ Hometown : China }" )
+    then
+        System.out.println( "Find a Chinese" );
+end
+
+rule "Check if object konw C++"
+    when
+       m : HashMap( get("skill") == "C++" )
+    then
+        System.out.println( "Find a man know C++" );
+        m.put("skill","js");
+        update(m);
+end
+
+rule "Check if object konw js"
+    when
+       m : HashMap( get("skill") == "js" )
+    then
+        System.out.println( "Find a man know js" );
+        m.put("skill","C++");
+        update(m);
+end
+
+
 
