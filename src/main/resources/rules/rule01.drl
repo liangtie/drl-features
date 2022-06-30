@@ -52,13 +52,6 @@ rule "Check if object is Chinese"
         list.add(m);
 end
 
-rule "Check if object is Chinese"
-    when
-       m : Object( toString()=="{ Hometown : China }" )
-    then
-        System.out.println( "Find a Chinese" );
-end
-
 rule "Check if object konw C++"
     when
        m : HashMap( get("skill") == "C++" )
@@ -74,7 +67,6 @@ rule "Check if object konw js"
     then
         System.out.println( "Find a man know js" );
         m.put("skill","C++");
-        update(m);
 end
 
 

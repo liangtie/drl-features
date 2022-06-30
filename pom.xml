@@ -13,7 +13,7 @@
   <description>A sample Drools Maven project</description>
 
   <properties>
-    <runtime.version>6.4.0.Final</runtime.version>
+    <runtime.version>7.46.0.Final</runtime.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
     <java.version>1.8</java.version>
